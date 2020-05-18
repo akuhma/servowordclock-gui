@@ -1,21 +1,17 @@
-# preact material app
-
-Super performant `Material` app for preact world using [preact-material-components](https://github.com/prateekbh/preact-material-components)
+# test
 
 ## CLI Commands
 
-``` bash
-# install dependencies
-npm install
+-   `npm install`: Installs dependencies
 
-# serve with hot reload at localhost:8080
-npm run dev
+-   `npm run dev`: Run a development, HMR server
 
-# build for production with minification
-npm run build
+-   `npm run serve`: Run a production-like server
 
-# test the production build locally
-npm run serve
-```
+-   `npm run build`: Production-ready build
+
+-   `npm run lint`: Pass TypeScript files using TSLint
+
+-   `npm run test`: Run Jest and [`preact-render-spy`](https://github.com/mzgoddard/preact-render-spy) for your tests
 
 For detailed explanation on how things work, checkout the [CLI Readme](https://github.com/developit/preact-cli/blob/master/README.md).

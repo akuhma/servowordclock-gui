@@ -1,6 +1,6 @@
 {
-  "name": "servowordclock-gui",
-  "short_name": "servowordclock-gui",
+  "name": "test",
+  "short_name": "test",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
