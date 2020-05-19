@@ -34,7 +34,7 @@ class Header extends Component<Props, State> {
 
         return (
             <div>
-                <TopAppBar className="topappbar" onNav>
+                <TopAppBar className="topappbar" onNav={null}>
                     <TopAppBar.Row>
                         <TopAppBar.Section align-start>
                             <TopAppBar.Icon
@@ -58,113 +58,55 @@ class Header extends Component<Props, State> {
                     }}
                 >
                     <Drawer.DrawerContent>
-                        <Drawer.DrawerItem
-                            selected={
-                                this.props.currentRoute ===
-                                Constants.routes.Home
-                            }
-                            onClick={() => {
-                                this.route(Constants.routes.Home);
-                            }}
-                        >
-                            <List.ItemGraphic>home</List.ItemGraphic>
-                            Home
-                        </Drawer.DrawerItem>
-                        <Drawer.DrawerItem
-                            selected={
-                                this.props.currentRoute ===
-                                Constants.routes.Wifi
-                            }
-                            onClick={() => {
-                                this.route(Constants.routes.Wifi);
-                            }}
-                        >
-                            <List.ItemGraphic>wifi</List.ItemGraphic>
-                            Wifi
-                        </Drawer.DrawerItem>
-                        <Drawer.DrawerItem
-                            selected={
-                                this.props.currentRoute ===
-                                Constants.routes.Timezone
-                            }
-                            onClick={() => {
-                                this.route(Constants.routes.Timezone);
-                            }}
-                        >
-                            <List.ItemGraphic>timelapse</List.ItemGraphic>
-                            Timezone
-                        </Drawer.DrawerItem>
-                        <Drawer.DrawerItem
-                            selected={
-                                this.props.currentRoute ===
-                                Constants.routes.ManualTime
-                            }
-                            onClick={() => {
-                                this.route(Constants.routes.ManualTime);
-                            }}
-                        >
-                            <List.ItemGraphic>access_time</List.ItemGraphic>
-                            Manual time
-                        </Drawer.DrawerItem>
-                        <Drawer.DrawerItem
-                            selected={
-                                this.props.currentRoute ===
-                                Constants.routes.Display
-                            }
-                            onClick={() => {
-                                this.route(Constants.routes.Display);
-                            }}
-                        >
-                            <List.ItemGraphic>grid_on</List.ItemGraphic>
-                            Display
-                        </Drawer.DrawerItem>
-                        <Drawer.DrawerItem
-                            selected={
-                                this.props.currentRoute ===
-                                Constants.routes.NightMode
-                            }
-                            onClick={() => {
-                                this.route(Constants.routes.NightMode);
-                            }}
-                        >
-                            <List.ItemGraphic>
-                                notifications_paused
-                            </List.ItemGraphic>
-                            Night mode
-                        </Drawer.DrawerItem>
+                        {this.renderDrawerItem(
+                            `Home`,
+                            `home`,
+                            Constants.routes.Home
+                        )}
+                        {this.renderDrawerItem(
+                            `Wifi`,
+                            `wifi`,
+                            Constants.routes.Wifi
+                        )}
+                        {this.renderDrawerItem(
+                            `Timezone`,
+                            `timelapse`,
+                            Constants.routes.Timezone
+                        )}
+                        {this.renderDrawerItem(
+                            `Manual time`,
+                            `access_time`,
+                            Constants.routes.ManualTime
+                        )}
+                        {this.renderDrawerItem(
+                            `Display`,
+                            `grid_on`,
+                            Constants.routes.Display
+                        )}
+                        {this.renderDrawerItem(
+                            `Night mode`,
+                            `notifications_paused`,
+                            Constants.routes.NightMode
+                        )}
                     </Drawer.DrawerContent>
                 </Drawer>
             </div>
         );
     }
 
-    // render(){
-    //     return (
-    //         <header class={style.header}>
-    //             <h1>Servo Word Clock</h1>
-    //             <nav>
-    //                 <Link activeClassName={style.active} href={Constants.routes.Home}>
-    //                     Start
-    //                 </Link>
-    //                 <Link activeClassName={style.active} href={Constants.routes.Wifi}>
-    //                     Wifi
-    //                 </Link>
-    //                 <Link activeClassName={style.active} href={Constants.routes.Timezone}>
-    //                     Timezone
-    //                 </Link>
-    //                 <Link activeClassName={style.active} href={Constants.routes.ManualTime}>
-    //                     Manual Time
-    //                 </Link>
-    //                 <Link activeClassName={style.active} href={Constants.routes.Display}>
-    //                     Display
-    //                 </Link>
-    //                 <Link activeClassName={style.active} href={Constants.routes.NightMode}>
-    //                     Night Mode
-    //                 </Link>
-    //             </nav>
-    //         </header>
-    //     );
-    // }
+    private renderDrawerItem(title: string, icon: string, routePath: string) {
+        return (
+            <Drawer.DrawerItem
+                selected={this.props.currentRoute === routePath}
+                onClick={() => {
+                    this.route(routePath);
+                }}
+            >
+                <List.ItemGraphic>{icon}</List.ItemGraphic>
+                {title}
+            </Drawer.DrawerItem>
+        );
+    }
 }
 
 export default Header;
