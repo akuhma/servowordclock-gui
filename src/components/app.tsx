@@ -1,7 +1,7 @@
 import { FunctionalComponent, h } from "preact";
 import { Route, Router, RouterOnChangeArgs } from "preact-router";
 
-import Constants from "../constants";
+import Constants from "../Constants";
 import Home from "../routes/home";
 import Wifi from "../routes/wifi";
 import Timezone from "../routes/timezone";

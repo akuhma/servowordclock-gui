@@ -1,4 +1,4 @@
-const constants = {
+const Constants = {
     routes: {
         Home: "/",
         Wifi: "/wifi/",
@@ -9,4 +9,4 @@ const constants = {
     }
 };
 
-export default constants;
+export default Constants;

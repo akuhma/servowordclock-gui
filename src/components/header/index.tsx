@@ -1,6 +1,6 @@
 import { h, Component } from "preact";
 import * as style from "./style.css";
-import Constants from "../../constants";
+import Constants from "../../Constants";
 import TopAppBar from "preact-material-components/ts/TopAppBar";
 import Drawer from "preact-material-components/ts/Drawer";
 import List from "preact-material-components/ts/List";

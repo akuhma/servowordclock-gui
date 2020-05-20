@@ -4,7 +4,7 @@ import "preact-material-components/Card/style.css";
 import "preact-material-components/Button/style.css";
 import * as style from "./style.css";
 import { route } from "preact-router";
-import Constants from "../../constants";
+import Constants from "../../Constants";
 
 const renderCard = (title: string, description: string, routePath: string) => (
     <Card class={style.card}>
