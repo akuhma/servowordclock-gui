@@ -13,10 +13,6 @@ body {
 
     --mdc-theme-primary: #102b3f;
     --mdc-theme-secondary: #8da9c4;
-    --mdc-theme-surface: #f00;
-    --mdc-theme-on-primary: #0f0;
-    --mdc-theme-on-secondary: #00f;
-    --mdc-theme-on-surface: #ff0;
 }
 .mdc-drawer .mdc-list-item--activated .mdc-list-item__graphic,
 .mdc-drawer .mdc-list-item--activated {
