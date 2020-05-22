@@ -15,3 +15,7 @@
 .cardBody {
     padding: 4px 16px;
 }
+
+.contentEnd {
+    justify-content: flex-end;
+}

@@ -3,3 +3,9 @@
     min-height: 100%;
     width: 100%;
 }
+.half {
+    width: 50%;
+}
+.textRight {
+    text-align: right;
+}

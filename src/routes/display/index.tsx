@@ -2,7 +2,7 @@ import { FunctionalComponent, h } from "preact";
 import * as style from "./style.css";
 import Button from "preact-material-components/ts/Button";
 import Slider from "preact-material-components/ts/Slider";
-import Select from "preact-material-components/Select";
+import Select from "preact-material-components/ts/Select";
 import "preact-material-components/List/style.css";
 import "preact-material-components/Menu/style.css";
 import "preact-material-components/Select/style.css";
@@ -21,67 +21,102 @@ const Display: FunctionalComponent = () => {
         <div class={style.display}>
             <h1>Display</h1>
             <div>
-                <Slider id="brigtness" step={1} value={10} max={100} />
                 <label htmlFor="brigtness">Brightness</label>
+                <Slider id="brigtness" step={1} value={10} max={100} />
             </div>
             <div>
                 <label htmlFor="hour-effect">Hour effect</label>
-                <Select id="hour-effect" hintText="Hour effect">
-                    <Select.Item>opt1</Select.Item>
-                    <Select.Item>opt2</Select.Item>
-                    <Select.Item>opt3</Select.Item>
-                </Select>
+                <div>
+                    <Select
+                        id="hour-effect"
+                        hintText="Hour effect"
+                        class={style.control}
+                    >
+                        <Select.Item>opt1</Select.Item>
+                        <Select.Item>opt2</Select.Item>
+                        <Select.Item>opt3</Select.Item>
+                    </Select>
+                </div>
             </div>
             <div>
                 <label htmlFor="5-minute-effect">5 minute effect</label>
-                <Select id="5-minute-effect" hintText="5 minute effect">
-                    <Select.Item>opt1</Select.Item>
-                    <Select.Item>opt2</Select.Item>
-                    <Select.Item>opt3</Select.Item>
-                </Select>
+                <div>
+                    <Select
+                        id="5-minute-effect"
+                        hintText="5 minute effect"
+                        class={style.control}
+                    >
+                        <Select.Item>opt1</Select.Item>
+                        <Select.Item>opt2</Select.Item>
+                        <Select.Item>opt3</Select.Item>
+                    </Select>
+                </div>
             </div>
             <div>
                 <label htmlFor="dot-color-mode">Dot color mode</label>
-                <Select id="dot-color-mode" hintText="Dot color mode">
-                    <Select.Item>opt1</Select.Item>
-                    <Select.Item>opt2</Select.Item>
-                    <Select.Item>opt3</Select.Item>
-                </Select>
+                <div>
+                    <Select
+                        id="dot-color-mode"
+                        hintText="Dot color mode"
+                        class={style.control}
+                    >
+                        <Select.Item>opt1</Select.Item>
+                        <Select.Item>opt2</Select.Item>
+                        <Select.Item>opt3</Select.Item>
+                    </Select>
+                </div>
             </div>
             <div>
                 <label htmlFor="dot-color">Dot color</label>
-                <input id="dot-color" type="color" />
+                <div class={style.control}>
+                    <input id="dot-color" type="color" />
+                </div>
             </div>
             <div>
                 <label htmlFor="word-color-mode">Word color mode</label>
-                <Select id="word-color-mode" hintText="Word color mode">
-                    <Select.Item>opt1</Select.Item>
-                    <Select.Item>opt2</Select.Item>
-                    <Select.Item>opt3</Select.Item>
-                </Select>
+                <div>
+                    <Select
+                        id="word-color-mode"
+                        hintText="Word color mode"
+                        class={style.control}
+                    >
+                        <Select.Item>opt1</Select.Item>
+                        <Select.Item>opt2</Select.Item>
+                        <Select.Item>opt3</Select.Item>
+                    </Select>
+                </div>
             </div>
             <div>
                 <label htmlFor="word-color">Word color</label>
-                <input id="word-color" type="color" />
+                <div class={style.control}>
+                    <input id="word-color" type="color" />
+                </div>
             </div>
             <div>
                 <label htmlFor="background-color-mode">
                     Background color mode
                 </label>
-                <Select
-                    id="background-color-mode"
-                    hintText="Background color mode"
-                >
-                    <Select.Item>opt1</Select.Item>
-                    <Select.Item>opt2</Select.Item>
-                    <Select.Item>opt3</Select.Item>
-                </Select>
+                <div>
+                    <Select
+                        id="background-color-mode"
+                        hintText="Background color mode"
+                        class={style.control}
+                    >
+                        <Select.Item>opt1</Select.Item>
+                        <Select.Item>opt2</Select.Item>
+                        <Select.Item>opt3</Select.Item>
+                    </Select>
+                </div>
             </div>
             <div>
                 <label htmlFor="background-color">Background color</label>
-                <input id="background-color" type="color" />
+                <div class={style.control}>
+                    <input id="background-color" type="color" />
+                </div>
             </div>
-            <Button onClick={() => onClickSave()}>Save</Button>
+            <div class={style.textRight}>
+                <Button onClick={() => onClickSave()}>Save</Button>
+            </div>
         </div>
     );
 };

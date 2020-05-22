@@ -1,10 +1,10 @@
 import { FunctionalComponent, h } from "preact";
 import * as style from "./style.css";
 import Checkbox from "preact-material-components/ts/Checkbox";
-import Radio from "preact-material-components/Radio";
+import Radio from "preact-material-components/ts/Radio";
 import FormField from "preact-material-components/ts/FormField";
 import Button from "preact-material-components/ts/Button";
-import LayoutGrid from "preact-material-components/LayoutGrid";
+import LayoutGrid from "preact-material-components/ts/LayoutGrid";
 import "preact-material-components/Button/style.css";
 import "preact-material-components/Checkbox/style.css";
 import "preact-material-components/Radio/style.css";
@@ -44,7 +44,6 @@ const TimeZone: FunctionalComponent = () => {
     return (
         <div class={style.timezone}>
             <h1>Timezone</h1>
-
             <LayoutGrid>
                 <LayoutGrid.Inner>
                     <LayoutGrid.Cell phoneCols={2}>
@@ -61,7 +60,9 @@ const TimeZone: FunctionalComponent = () => {
                     <label htmlFor="daylight-saving">Daylight saving</label>
                 </FormField>
             </div>
-            <Button onClick={() => onClickSave()}>Save</Button>
+            <div class={style.textRight}>
+                <Button onClick={() => onClickSave()}>Save</Button>
+            </div>
         </div>
     );
 };

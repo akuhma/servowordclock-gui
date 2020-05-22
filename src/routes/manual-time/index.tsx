@@ -24,9 +24,12 @@ const ManualTime: FunctionalComponent = () => {
                     helperText="hh:mm:ss"
                     step="1"
                     value={new Date().toTimeString().split(" ")[0]}
+                    class={style.full}
                 />
             </div>
-            <Button onClick={() => onClickSave()}>Save</Button>
+            <div class={style.textRight}>
+                <Button onClick={() => onClickSave()}>Save</Button>
+            </div>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 {
-  "name": "test",
-  "short_name": "test",
+  "name": "Servo Word Clock - GUI",
+  "short_name": "swc-gui",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

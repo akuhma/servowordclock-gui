@@ -12,7 +12,7 @@ const renderCard = (title: string, description: string, routePath: string) => (
             <h2 class=" mdc-typography--title">{title}</h2>
         </div>
         <div class={style.cardBody}>{description}</div>
-        <Card.Actions>
+        <Card.Actions class={style.contentEnd}>
             <Card.ActionButtons>
                 <Card.ActionButton
                     onClick={() => {

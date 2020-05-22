@@ -1,9 +1,7 @@
 import { FunctionalComponent, h } from "preact";
 import * as style from "./style.css";
-import FormField from "preact-material-components/ts/FormField";
 import Button from "preact-material-components/ts/Button";
 import TextField from "preact-material-components/ts/TextField";
-import "preact-material-components/FormField/style.css";
 import "preact-material-components/TextField/style.css";
 import "preact-material-components/Button/style.css";
 import "preact-material-components/Theme/style.css";
@@ -25,6 +23,7 @@ const Wifi: FunctionalComponent = () => {
                     id="ssid"
                     label="SSID"
                     helperText="Your network name"
+                    class={style.full}
                 />
             </div>
             <div>
@@ -33,9 +32,14 @@ const Wifi: FunctionalComponent = () => {
                     id="password"
                     label="Password"
                     helperText="Your network password"
+                    class={style.full}
                 />
             </div>
-            <Button onClick={() => onClickSave()}>Save &amp; Restart</Button>
+            <div class={style.textRight}>
+                <Button onClick={() => onClickSave()}>
+                    Save &amp; Restart
+                </Button>
+            </div>
         </div>
     );
 };
