@@ -1,8 +1,8 @@
 import { FunctionalComponent, h } from "preact";
 import * as style from "./style.css";
-import Button from "preact-material-components/ts/Button";
-import Slider from "preact-material-components/ts/Slider";
-import Select from "preact-material-components/ts/Select";
+import Button from "preact-material-components/Button";
+import Slider from "preact-material-components/Slider";
+import Select from "preact-material-components/Select";
 import "preact-material-components/List/style.css";
 import "preact-material-components/Menu/style.css";
 import "preact-material-components/Select/style.css";

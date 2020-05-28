@@ -1,5 +1,5 @@
 import { FunctionalComponent, h } from "preact";
-import Card from "preact-material-components/ts/Card";
+import Card from "preact-material-components/Card";
 import "preact-material-components/Card/style.css";
 import "preact-material-components/Button/style.css";
 import * as style from "./style.css";

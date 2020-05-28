@@ -1,7 +1,7 @@
 import { FunctionalComponent, h } from "preact";
 import * as style from "./style.css";
-import Button from "preact-material-components/ts/Button";
-import TextField from "preact-material-components/ts/TextField";
+import Button from "preact-material-components/Button";
+import TextField from "preact-material-components/TextField";
 import "preact-material-components/Button/style.css";
 import "preact-material-components/TextField/style.css";
 import Constants from "../../Constants";

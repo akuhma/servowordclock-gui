@@ -1,10 +1,10 @@
 import { FunctionalComponent, h } from "preact";
 import * as style from "./style.css";
-import Button from "preact-material-components/ts/Button";
-import FormField from "preact-material-components/ts/FormField";
-import TextField from "preact-material-components/ts/TextField";
-import Checkbox from "preact-material-components/ts/Checkbox";
-import LayoutGrid from "preact-material-components/ts/LayoutGrid";
+import Button from "preact-material-components/Button";
+import FormField from "preact-material-components/FormField";
+import TextField from "preact-material-components/TextField";
+import Checkbox from "preact-material-components/Checkbox";
+import LayoutGrid from "preact-material-components/LayoutGrid";
 import "preact-material-components/Button/style.css";
 import "preact-material-components/FormField/style.css";
 import "preact-material-components/TextField/style.css";

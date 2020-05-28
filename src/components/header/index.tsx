@@ -1,9 +1,9 @@
 import { h, Component } from "preact";
 import * as style from "./style.css";
 import Constants from "../../Constants";
-import TopAppBar from "preact-material-components/ts/TopAppBar";
-import Drawer from "preact-material-components/ts/Drawer";
-import List from "preact-material-components/ts/List";
+import TopAppBar from "preact-material-components/TopAppBar";
+import Drawer from "preact-material-components/Drawer";
+import List from "preact-material-components/List";
 import "preact-material-components/Drawer/style.css";
 import "preact-material-components/List/style.css";
 import "preact-material-components/TopAppBar/style.css";

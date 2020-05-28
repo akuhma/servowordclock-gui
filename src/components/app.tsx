@@ -10,6 +10,7 @@ import Display from "../routes/display";
 import NightMode from "../routes/night-mode";
 import NotFoundPage from "../routes/notfound";
 import Header from "./header";
+import { createHashHistory } from "history";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
@@ -26,7 +27,7 @@ const App: FunctionalComponent = () => {
     return (
         <div id="app">
             <Header currentRoute={currentRoute} />
-            <Router onChange={handleRoute}>
+            <Router onChange={handleRoute} history={createHashHistory()}>
                 <Route path={Constants.routes.Home} component={Home} />
                 <Route path={Constants.routes.Wifi} component={Wifi} />
                 <Route path={Constants.routes.Timezone} component={Timezone} />
