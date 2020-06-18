@@ -28,7 +28,7 @@ class Display extends Component<Props, State> {
     render() {
         return (
             <div class={style.display}>
-                <h1>Display</h1>
+                <h1>Display effects</h1>
                 <div>
                     <label htmlFor="brigtness">Brightness</label>
                     <Slider id="brigtness" step={1} value={10} max={100} />

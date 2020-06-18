@@ -4,3 +4,4 @@ export const card: string;
 export const cardHeader: string;
 export const cardBody: string;
 export const contentEnd: string;
+export const icon: string;

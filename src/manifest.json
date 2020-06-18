@@ -1,11 +1,11 @@
 {
   "name": "Servo Word Clock - GUI",
-  "short_name": "swc-gui",
+  "short_name": "SWClock",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",
-  "theme_color": "#673ab8",
+  "theme_color": "#6200ee",
   "icons": [
     {
       "src": "/assets/icons/android-chrome-192x192.png",

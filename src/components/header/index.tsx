@@ -78,7 +78,7 @@ class Header extends Component<Props, State> {
                             Constants.routes.ManualTime
                         )}
                         {this.renderDrawerItem(
-                            `Display`,
+                            `Display effects`,
                             `grid_on`,
                             Constants.routes.Display
                         )}

@@ -3,16 +3,16 @@ import * as style from "./style.css";
 import Button from "preact-material-components/Button";
 import FormField from "preact-material-components/FormField";
 import TextField from "preact-material-components/TextField";
-import Checkbox from "preact-material-components/Checkbox";
 import LayoutGrid from "preact-material-components/LayoutGrid";
 import "preact-material-components/Button/style.css";
 import "preact-material-components/FormField/style.css";
 import "preact-material-components/TextField/style.css";
-import "preact-material-components/Checkbox/style.css";
+import "preact-material-components/Radio/style.css";
 import "preact-material-components/LayoutGrid/style.css";
 import Constants from "../../Constants";
 import { route } from "preact-router";
 import { SWCClient } from "../../domain/SWCClient";
+import Radio from "preact-material-components/Radio";
 
 class NightMode extends Component<Props, State> {
     onClickSave(): void {
@@ -33,7 +33,7 @@ class NightMode extends Component<Props, State> {
                                 label="Start time"
                                 type="time"
                                 helperText="hh:mm"
-                                class={style.half}
+                                class={style.full}
                             />
                         </LayoutGrid.Cell>
                         <LayoutGrid.Cell phoneCols={2}>
@@ -43,7 +43,7 @@ class NightMode extends Component<Props, State> {
                                 label="End time"
                                 type="time"
                                 helperText="hh:mm"
-                                class={style.half}
+                                class={style.full}
                             />
                         </LayoutGrid.Cell>
                     </LayoutGrid.Inner>
@@ -58,7 +58,7 @@ class NightMode extends Component<Props, State> {
                                 label="Start time"
                                 type="time"
                                 helperText="hh:mm"
-                                class={style.half}
+                                class={style.full}
                             />
                         </LayoutGrid.Cell>
                         <LayoutGrid.Cell phoneCols={2}>
@@ -68,14 +68,31 @@ class NightMode extends Component<Props, State> {
                                 label="End time"
                                 type="time"
                                 helperText="hh:mm"
-                                class={style.half}
+                                class={style.full}
                             />
                         </LayoutGrid.Cell>
                     </LayoutGrid.Inner>
                 </LayoutGrid>
+                <h4>Mode</h4>
                 <FormField>
-                    <Checkbox id="activate" checked={true} />
-                    <label htmlFor="activate">activate</label>
+                    <Radio id={`nightmode-on`} name="timezone" checked={true} />
+                    <label htmlFor={`timezone-on`}>disable night mode</label>
+                </FormField>
+                <FormField>
+                    <Radio
+                        id={`nightmode-silent`}
+                        name="timezone"
+                        checked={true}
+                    />
+                    <label htmlFor={`timezone-silent`}>servos off</label>
+                </FormField>
+                <FormField>
+                    <Radio
+                        id={`nightmode-off`}
+                        name="timezone"
+                        checked={true}
+                    />
+                    <label htmlFor={`timezone-off`}>everything off</label>
                 </FormField>
                 <div class={style.textRight}>
                     <Button onClick={() => this.onClickSave()}>Save</Button>
