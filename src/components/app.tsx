@@ -11,12 +11,15 @@ import NightMode from "./night-mode";
 import NotFoundPage from "./notfound";
 import Header from "./header";
 import { createHashHistory } from "history";
+import { SWCClient } from "../domain/SWCClient";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
     // tslint:disable-next-line:no-var-requires
     require("preact/debug");
 }
+
+const client = new SWCClient();
 
 const App: FunctionalComponent = () => {
     let currentRoute: string = Constants.routes.Home;
@@ -28,18 +31,15 @@ const App: FunctionalComponent = () => {
         <div id="app">
             <Header currentRoute={currentRoute} />
             <Router onChange={handleRoute} history={createHashHistory()}>
-                <Route path={Constants.routes.Home} component={Home} />
-                <Route path={Constants.routes.Wifi} component={Wifi} />
-                <Route path={Constants.routes.Timezone} component={Timezone} />
-                <Route
+                <Home path={Constants.routes.Home} />
+                <Wifi path={Constants.routes.Wifi} client={client} />
+                <Timezone path={Constants.routes.Timezone} client={client} />
+                <ManualTime
                     path={Constants.routes.ManualTime}
-                    component={ManualTime}
+                    client={client}
                 />
-                <Route path={Constants.routes.Display} component={Display} />
-                <Route
-                    path={Constants.routes.NightMode}
-                    component={NightMode}
-                />
+                <Display path={Constants.routes.Display} client={client} />
+                <NightMode path={Constants.routes.NightMode} client={client} />
                 <NotFoundPage default />
             </Router>
         </div>

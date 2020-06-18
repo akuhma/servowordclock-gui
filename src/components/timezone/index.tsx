@@ -1,4 +1,4 @@
-import { FunctionalComponent, h } from "preact";
+import { FunctionalComponent, h, Component } from "preact";
 import * as style from "./style.css";
 import Checkbox from "preact-material-components/Checkbox";
 import Radio from "preact-material-components/Radio";
@@ -13,14 +13,15 @@ import "preact-material-components/LayoutGrid/style.css";
 import "mdn-polyfills/String.prototype.padStart";
 import { route } from "preact-router";
 import Constants from "../../Constants";
+import { SWCClient } from "../../domain/SWCClient";
 
-const TimeZone: FunctionalComponent = () => {
-    const onClickSave = () => {
+class TimeZone extends Component<Props, State> {
+    onClickSave() {
         console.log("save"); //TODO: Save => https://material.preactjs.com/component/linear-progress/
         route(Constants.routes.Home);
-    };
+    }
 
-    const renderTimeZones = (offset: number) => {
+    renderTimeZones(offset: number) {
         const result = [];
         for (let i = 0; i < 12; i++) {
             const num = i * 2 + offset;
@@ -39,32 +40,41 @@ const TimeZone: FunctionalComponent = () => {
             result.push(<br />);
         }
         return result;
-    };
+    }
 
-    return (
-        <div class={style.timezone}>
-            <h1>Timezone</h1>
-            <LayoutGrid>
-                <LayoutGrid.Inner>
-                    <LayoutGrid.Cell phoneCols={2}>
-                        {renderTimeZones(0)}
-                    </LayoutGrid.Cell>
-                    <LayoutGrid.Cell phoneCols={2}>
-                        {renderTimeZones(1)}
-                    </LayoutGrid.Cell>
-                </LayoutGrid.Inner>
-            </LayoutGrid>
-            <div>
-                <FormField>
-                    <Checkbox id="daylight-saving" checked={true} />
-                    <label htmlFor="daylight-saving">Daylight saving</label>
-                </FormField>
+    render() {
+        return (
+            <div class={style.timezone}>
+                <h1>Timezone</h1>
+                <LayoutGrid>
+                    <LayoutGrid.Inner>
+                        <LayoutGrid.Cell phoneCols={2}>
+                            {this.renderTimeZones(0)}
+                        </LayoutGrid.Cell>
+                        <LayoutGrid.Cell phoneCols={2}>
+                            {this.renderTimeZones(1)}
+                        </LayoutGrid.Cell>
+                    </LayoutGrid.Inner>
+                </LayoutGrid>
+                <div>
+                    <FormField>
+                        <Checkbox id="daylight-saving" checked={true} />
+                        <label htmlFor="daylight-saving">Daylight saving</label>
+                    </FormField>
+                </div>
+                <div class={style.textRight}>
+                    <Button onClick={() => this.onClickSave()}>Save</Button>
+                </div>
             </div>
-            <div class={style.textRight}>
-                <Button onClick={() => onClickSave()}>Save</Button>
-            </div>
-        </div>
-    );
-};
+        );
+    }
+}
+
+interface State {
+    isLoading: boolean;
+}
+interface Props {
+    client: SWCClient;
+}
 
 export default TimeZone;

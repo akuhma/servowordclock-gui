@@ -12,3 +12,6 @@
 .textRight {
     text-align: right;
 }
+input[type="color"] {
+    width: 100%;
+}
