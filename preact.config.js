@@ -12,6 +12,14 @@ export default {
      * @param {object} options - this is mainly relevant for plugins (will always be empty in the config), default to an empty object
      **/
     webpack(config, env, helpers, options) {
+        // console.log("#########################################################")
+        // console.log("#########################################################")
+        // console.log("#########################################################")
+        // config.module.rules.forEach(r => {
+        //     console.log("------")
+        //     console.log(r)
+        // })
+
         // Switch css-loader for typings-for-css-modules-loader, which is a wrapper
         // that automatically generates .d.ts files for loaded CSS
         helpers.getLoadersByName(config, "css-loader").forEach(({ loader }) => {
@@ -31,6 +39,7 @@ export default {
             "src",
             "index"
         );
+        
 		
 		// config.plugins.push(new webpack.optimize.LimitChunkCountPlugin({
         //     maxChunks: 1

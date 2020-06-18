@@ -2,13 +2,13 @@ import { FunctionalComponent, h } from "preact";
 import { Route, Router, RouterOnChangeArgs } from "preact-router";
 
 import Constants from "../Constants";
-import Home from "../no_routes/home";
-import Wifi from "../no_routes/wifi";
-import Timezone from "../no_routes/timezone";
-import ManualTime from "../no_routes/manual-time";
-import Display from "../no_routes/display";
-import NightMode from "../no_routes/night-mode";
-import NotFoundPage from "../no_routes/notfound";
+import Home from "./home";
+import Wifi from "./wifi";
+import Timezone from "./timezone";
+import ManualTime from "./manual-time";
+import Display from "./display";
+import NightMode from "./night-mode";
+import NotFoundPage from "./notfound";
 import Header from "./header";
 import { createHashHistory } from "history";
 

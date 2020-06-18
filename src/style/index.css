@@ -4,7 +4,7 @@ body {
     width: 100%;
     padding: 0;
     margin: 0;
-    background: #fafafa;
+    background: var(--mdc-theme-background);
     font-family: "Helvetica Neue", arial, sans-serif;
     font-weight: 400;
     color: #444;
@@ -13,6 +13,8 @@ body {
 
     --mdc-theme-primary: #102b3f;
     --mdc-theme-secondary: #8da9c4;
+    /*--mdc-theme-surface: #aafded;*/
+    --mdc-theme-background: #fafafa;
 }
 .mdc-drawer .mdc-list-item--activated .mdc-list-item__graphic,
 .mdc-drawer .mdc-list-item--activated {
