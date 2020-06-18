@@ -1,4 +1,5 @@
 import { resolve } from "path";
+import webpack from "webpack";
 
 export default {
     /**
@@ -30,5 +31,9 @@ export default {
             "src",
             "index"
         );
+		
+		// config.plugins.push(new webpack.optimize.LimitChunkCountPlugin({
+        //     maxChunks: 1
+        //   }))
     }
 };
