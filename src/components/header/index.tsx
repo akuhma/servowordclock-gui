@@ -68,14 +68,9 @@ class Header extends Component<Props, State> {
                             Constants.routes.Wifi
                         )}
                         {this.renderDrawerItem(
-                            `Timezone`,
+                            `Time Settings`,
                             `timelapse`,
-                            Constants.routes.Timezone
-                        )}
-                        {this.renderDrawerItem(
-                            `Manual time`,
-                            `access_time`,
-                            Constants.routes.ManualTime
+                            Constants.routes.TimeSettings
                         )}
                         {this.renderDrawerItem(
                             `Display effects`,

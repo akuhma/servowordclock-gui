@@ -4,8 +4,7 @@ import { Route, Router, RouterOnChangeArgs } from "preact-router";
 import Constants from "../Constants";
 import Home from "./home";
 import Wifi from "./wifi";
-import Timezone from "./timezone";
-import ManualTime from "./manual-time";
+import TimeSettings from "./time-settings";
 import Display from "./display";
 import NightMode from "./night-mode";
 import NotFoundPage from "./notfound";
@@ -33,9 +32,8 @@ const App: FunctionalComponent = () => {
             <Router onChange={handleRoute} history={createHashHistory()}>
                 <Home path={Constants.routes.Home} />
                 <Wifi path={Constants.routes.Wifi} client={client} />
-                <Timezone path={Constants.routes.Timezone} client={client} />
-                <ManualTime
-                    path={Constants.routes.ManualTime}
+                <TimeSettings
+                    path={Constants.routes.TimeSettings}
                     client={client}
                 />
                 <Display path={Constants.routes.Display} client={client} />

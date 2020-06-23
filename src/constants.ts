@@ -2,8 +2,7 @@ const Constants = {
     routes: {
         Home: "/",
         Wifi: "/wifi/",
-        Timezone: "/timezone/",
-        ManualTime: "/manual-time/",
+        TimeSettings: "/time-settings/",
         Display: "/display/",
         NightMode: "/night-mode/"
     }

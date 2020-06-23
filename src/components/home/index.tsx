@@ -46,16 +46,10 @@ const Home: FunctionalComponent = () => {
                 Constants.routes.Wifi
             )}
             {renderCard(
-                `Timezone`,
-                `Enter your local timezone`,
+                `Time Settings`,
+                `Enter your local timezone or set the time manually, if your clock is not connected to the internet or cannot synchronize`,
                 `timelapse`,
-                Constants.routes.Timezone
-            )}
-            {renderCard(
-                `Manual time`,
-                `Set the time manually, if your clock is not connected to the internet or cannot synchronize`,
-                `access_time`,
-                Constants.routes.ManualTime
+                Constants.routes.TimeSettings
             )}
             {renderCard(
                 `Display effects`,
