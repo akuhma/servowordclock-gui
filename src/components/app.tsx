@@ -1,16 +1,22 @@
-import { FunctionalComponent, h } from "preact";
-import { Route, Router, RouterOnChangeArgs } from "preact-router";
+import { h, Component } from "preact";
+import { Router } from "preact-router";
 
 import Constants from "../Constants";
 import Home from "./home";
 import Wifi from "./wifi";
-import TimeSettings from "./time-settings";
 import Display from "./display";
 import NightMode from "./night-mode";
+import TimeSettings from "./time-settings";
 import NotFoundPage from "./notfound";
 import Header from "./header";
 import { createHashHistory } from "history";
-import { SWCClient } from "../domain/SWCClient";
+import {
+    SWCClient,
+    NightModeSettings,
+    DisplayEffectsSettings
+} from "../domain/SWCClient";
+import LinearProgress from "preact-material-components/LinearProgress";
+import "preact-material-components/LinearProgress/style.css";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
@@ -18,30 +24,71 @@ if ((module as any).hot) {
     require("preact/debug");
 }
 
-const client = new SWCClient();
-
-const App: FunctionalComponent = () => {
-    let currentRoute: string = Constants.routes.Home;
-    const handleRoute = (e: RouterOnChangeArgs) => {
-        currentRoute = e.url;
+class App extends Component<Props, State> {
+    state: State = {
+        currentRoute: Constants.routes.Home
     };
+    client = new SWCClient();
 
-    return (
-        <div id="app">
-            <Header currentRoute={currentRoute} />
-            <Router onChange={handleRoute} history={createHashHistory()}>
-                <Home path={Constants.routes.Home} />
-                <Wifi path={Constants.routes.Wifi} client={client} />
-                <TimeSettings
-                    path={Constants.routes.TimeSettings}
-                    client={client}
-                />
-                <Display path={Constants.routes.Display} client={client} />
-                <NightMode path={Constants.routes.NightMode} client={client} />
-                <NotFoundPage default />
-            </Router>
-        </div>
-    );
-};
+    componentDidMount() {
+        this.client
+            .getDisplayEffectsSettings()
+            .then(displayEffectsSettings =>
+                this.setState({ displayEffectsSettings })
+            );
+        this.client
+            .getNightModeSettings()
+            .then(nightModeSettings => this.setState({ nightModeSettings }));
+    }
+
+    render() {
+        if (
+            !this.state.displayEffectsSettings ||
+            !this.state.nightModeSettings
+        ) {
+            return (
+                <div>
+                    <LinearProgress indeterminate />
+                </div>
+            );
+        }
+
+        return (
+            <div id="app">
+                <Header currentRoute={this.state.currentRoute} />
+                <Router
+                    onChange={e => this.setState({ currentRoute: e.url })}
+                    history={createHashHistory()}
+                >
+                    <Home path={Constants.routes.Home} />
+                    <Wifi path={Constants.routes.Wifi} client={this.client} />
+                    <TimeSettings
+                        path={Constants.routes.TimeSettings}
+                        client={this.client}
+                    />
+                    <Display
+                        path={Constants.routes.Display}
+                        client={this.client}
+                        settings={this.state.displayEffectsSettings}
+                    />
+                    <NightMode
+                        path={Constants.routes.NightMode}
+                        client={this.client}
+                        settings={this.state.nightModeSettings}
+                    />
+                    <NotFoundPage default />
+                </Router>
+            </div>
+        );
+    }
+}
+
+interface State {
+    nightModeSettings?: NightModeSettings;
+    displayEffectsSettings?: DisplayEffectsSettings;
+    currentRoute: string;
+}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface Props {}
 
 export default App;
