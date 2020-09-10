@@ -56,8 +56,6 @@ class TimeSettings extends Component<Props, State> {
                             </label>
                         </h4>
                     </FormField>
-                </div>
-                <div>
                     <FormField>
                         <Radio
                             id={`timesettings-manual`}

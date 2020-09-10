@@ -20,9 +20,61 @@ class NightMode extends Component<Props, State> {
         route(Constants.routes.Home);
     }
     render() {
+        const content = this.state.nightMode ? this.renderContent() : null;
+
         return (
             <div class={style.nightMode}>
                 <h1>Night mode</h1>
+                <div>
+                    <FormField>
+                        <Radio
+                            id={`nightmode-off`}
+                            name="nightmode"
+                            checked={!this.state.nightMode}
+                            onChange={e =>
+                                this.setState({ nightMode: undefined })
+                            }
+                        />
+                        <label htmlFor={`nightmode-off`}>
+                            disable night mode
+                        </label>
+                    </FormField>
+                    <FormField>
+                        <Radio
+                            id={`nightmode-servos`}
+                            name="nightmode"
+                            checked={this.state.nightMode === "servos"}
+                            onChange={e =>
+                                this.setState({ nightMode: "servos" })
+                            }
+                        />
+                        <label htmlFor={`nightmode-servos`}>servos off</label>
+                    </FormField>
+                    <FormField>
+                        <Radio
+                            id={`nightmode-everything`}
+                            name="nightmode"
+                            checked={this.state.nightMode === "everything"}
+                            onChange={e =>
+                                this.setState({ nightMode: "everything" })
+                            }
+                        />
+                        <label htmlFor={`nightmode-everything`}>
+                            everything off
+                        </label>
+                    </FormField>
+                </div>
+                {content}
+                <div class={style.textRight}>
+                    <Button onClick={() => this.onClickSave()}>Save</Button>
+                </div>
+            </div>
+        );
+    }
+
+    private renderContent() {
+        return (
+            <div>
                 <h4>Weekdays</h4>
                 <LayoutGrid>
                     <LayoutGrid.Inner>
@@ -73,30 +125,6 @@ class NightMode extends Component<Props, State> {
                         </LayoutGrid.Cell>
                     </LayoutGrid.Inner>
                 </LayoutGrid>
-                <h4>Mode</h4>
-                <FormField>
-                    <Radio id={`nightmode-on`} name="timezone" checked={true} />
-                    <label htmlFor={`timezone-on`}>disable night mode</label>
-                </FormField>
-                <FormField>
-                    <Radio
-                        id={`nightmode-silent`}
-                        name="timezone"
-                        checked={true}
-                    />
-                    <label htmlFor={`timezone-silent`}>servos off</label>
-                </FormField>
-                <FormField>
-                    <Radio
-                        id={`nightmode-off`}
-                        name="timezone"
-                        checked={true}
-                    />
-                    <label htmlFor={`timezone-off`}>everything off</label>
-                </FormField>
-                <div class={style.textRight}>
-                    <Button onClick={() => this.onClickSave()}>Save</Button>
-                </div>
             </div>
         );
     }
@@ -104,6 +132,7 @@ class NightMode extends Component<Props, State> {
 
 interface State {
     isLoading: boolean;
+    nightMode?: "servos" | "everything";
 }
 interface Props {
     client: SWCClient;
